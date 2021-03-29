@@ -3,7 +3,7 @@ from collections import Counter
 
 
 def preprocess_input(inpt):
-    if '/' in inpt:
+    if ('/' in inpt) or ('\\' in inpt):
         plaintext = read_file(inpt)
         return plaintext.lower().replace(" ", "")
     else:
@@ -42,6 +42,6 @@ def check_key_integrity(possible_key):
     return possible_key if i == -1 else possible_key[:i]
 
 
-def get_most_similar_value(list_of_lists, value_to_compare=0.067):
-    list_of_avgs = [np.mean(x) for x in list_of_lists if len(x) != 0]
+def get_most_similar_value(list_of_lists, factor=0.0001):
+    list_of_avgs = [np.mean(x) - (factor * i) for i,x in enumerate(list_of_lists) if len(x) != 0]
     return np.argmax(list_of_avgs) + 1
