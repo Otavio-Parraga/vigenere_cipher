@@ -64,7 +64,7 @@ def get_most_similar_value(list_of_lists, factor=0.0001):
     return np.argmax(list_of_avgs) + 1
 
 
-def decipher_text(ciphertext):
+def decrypt_text(ciphertext):
     """
     Receives a cipher text as parameter, and run the following steps:
     find the key size -> split ciphertext into text chunks -> 
@@ -96,7 +96,7 @@ def decipher_text(ciphertext):
     return ''.join(decrypted_text)
 
 
-def cipher_text(key, plaintext):
+def encrypted_text(key, plaintext):
     """
     Receives a key and a plaintext, as string, and 
     makes the encryption of the plaintext with
@@ -122,11 +122,11 @@ if __name__ == '__main__':
     if args.key and args.pt:
         key = preprocess_input(args.key)
         plaintext = preprocess_input(args.pt)
-        output = cipher_text(key, plaintext)
+        output = encrypted_text(key, plaintext)
 
     elif args.ct:
         ciphertext = preprocess_input(args.ct)
-        output = decipher_text(ciphertext)
+        output = decrypt_text(ciphertext)
     else:
         print('No parameters found.')
         exit()
