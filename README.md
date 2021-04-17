@@ -13,8 +13,3 @@ Code for encrypting and decrypting texts using Vigenere Cipher
   * ```python vigenere_cipher.py --ct <path_or_text> --output_dir <dir> --file_name <output_file_name>```
 * Example of full command:
   * ```python vigenere_cipher.py --ct cipher1.txt --output_dir ./ --file_name cipher1-output.txt```
-
-### TODO:
-* text decryption is strongly influenced by key limit size
-* is it possible to remove check_key_integrity()?
-* change some names and terms
